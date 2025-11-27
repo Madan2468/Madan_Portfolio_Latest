@@ -4,7 +4,7 @@ import { experiences } from "@/lib/constants"
 import { textVariant } from "@/lib/motion"
 import SectionWrapper from "./SectionWrapper"
 import { Calendar, ChevronDown, Code2 } from "lucide-react"
-import { useRef, useState } from "react"
+import { useRef, useState, memo } from "react"
 import dynamic from "next/dynamic"
 
 const TimelineIcon = dynamic(() => import("./canvas/TimelineIcon"), { ssr: false })
@@ -19,7 +19,7 @@ const GlitchText = ({ text }: { text: string }) => {
   )
 }
 
-const ExperienceCard = ({ experience, index }: { experience: any; index: number }) => {
+const ExperienceCard = memo(({ experience, index }: { experience: any; index: number }) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const isEven = index % 2 === 0
 
@@ -96,7 +96,7 @@ const ExperienceCard = ({ experience, index }: { experience: any; index: number 
       </motion.div>
     </div>
   )
-}
+})
 
 const Experience = () => {
   const ref = useRef(null)

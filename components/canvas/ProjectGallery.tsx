@@ -1,14 +1,14 @@
 "use client"
 
 import type React from "react"
-import { useRef, useState, useMemo } from "react"
+import { useRef, useState, useMemo, memo } from "react"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { Image, Environment, ScrollControls, useScroll, Html, RoundedBox, Stars, Sparkles, Float, MeshReflectorMaterial, Text } from "@react-three/drei"
 import * as THREE from "three"
 import { projects } from "@/lib/constants"
 import { Github, ExternalLink, Tv } from "lucide-react"
 
-const RetroTV = ({ index, position, project, isHovered, onHover }: { index: number; position: [number, number, number]; project: any; isHovered: boolean; onHover: (hover: boolean) => void }) => {
+const RetroTV = memo(({ index, position, project, isHovered, onHover }: { index: number; position: [number, number, number]; project: any; isHovered: boolean; onHover: (hover: boolean) => void }) => {
   const ref = useRef<THREE.Group>(null)
   const screenRef = useRef<THREE.Mesh>(null)
   const { camera } = useThree()
@@ -239,7 +239,7 @@ const RetroTV = ({ index, position, project, isHovered, onHover }: { index: numb
       </Float>
     </group>
   )
-}
+})
 
 const BackgroundShapes = () => {
   return (
@@ -306,8 +306,8 @@ const ProjectGallery = () => {
         <GalleryContent />
         <BackgroundShapes />
 
-        <Stars radius={100} depth={50} count={1500} factor={4} saturation={0} fade speed={1} />
-        <Sparkles count={25} scale={15} size={3} speed={0.4} opacity={0.5} color="#a78bfa" />
+        <Stars radius={100} depth={50} count={800} factor={4} saturation={0} fade speed={1} />
+        <Sparkles count={15} scale={15} size={3} speed={0.4} opacity={0.5} color="#a78bfa" />
 
         {/* Cyber Grid Floor */}
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -4, 0]}>

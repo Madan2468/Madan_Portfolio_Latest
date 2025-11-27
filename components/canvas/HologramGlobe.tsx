@@ -24,7 +24,7 @@ const Globe = () => {
     <group scale={2.5}>
       {/* Core Globe - Holographic Glass */}
       <mesh ref={coreRef}>
-        <icosahedronGeometry args={[1, 4]} />
+        <icosahedronGeometry args={[1, 3]} />
         <MeshTransmissionMaterial
           backside
           samples={2} // Optimized: Reduced samples
@@ -58,7 +58,7 @@ const Globe = () => {
       </group>
 
       {/* Orbiting Particles */}
-      <Sparkles count={40} scale={4} size={4} speed={0.4} opacity={0.5} color="#c4b5fd" />
+      <Sparkles count={20} scale={4} size={4} speed={0.4} opacity={0.5} color="#c4b5fd" />
     </group>
   )
 }
@@ -77,7 +77,8 @@ const HologramGlobe = () => {
     <Canvas
       shadows
       frameloop="always"
-      gl={{ preserveDrawingBuffer: true, antialias: true, alpha: true }}
+      dpr={[1, 1.5]}
+      gl={{ preserveDrawingBuffer: true, antialias: false, alpha: true, powerPreference: "high-performance" }}
       camera={{
         fov: 45,
         near: 0.1,

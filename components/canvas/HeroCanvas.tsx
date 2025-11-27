@@ -20,7 +20,7 @@ const LiquidChrome = () => {
   return (
     <>
       <Float speed={2} rotationIntensity={1} floatIntensity={1}>
-        <Sphere ref={meshRef} args={[1, 64, 64]} scale={2.4}>
+        <Sphere ref={meshRef} args={[1, 32, 32]} scale={2.4}>
           <MeshDistortMaterial
             color="#2a1a4a"
             attach="material"
@@ -36,7 +36,7 @@ const LiquidChrome = () => {
       {/* Optimized ambient particles */}
       <group rotation={[0, 0, Math.PI / 4]}>
         <points>
-          <sphereGeometry args={[5, 32, 32]} />
+          <sphereGeometry args={[5, 24, 24]} />
           <pointsMaterial
             size={0.02}
             color="#8b5cf6"
@@ -50,7 +50,7 @@ const LiquidChrome = () => {
       {/* Additional particle layer */}
       <group rotation={[Math.PI / 3, Math.PI / 4, 0]}>
         <points>
-          <sphereGeometry args={[6, 24, 24]} />
+          <sphereGeometry args={[6, 16, 16]} />
           <pointsMaterial
             size={0.015}
             color="#a78bfa"
@@ -89,10 +89,10 @@ const HeroCanvas = () => {
         <LiquidChrome />
 
         {/* Reduced star count */}
-        <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={1} />
+        <Stars radius={100} depth={50} count={1500} factor={4} saturation={0} fade speed={1} />
 
         {/* Optimized sparkles */}
-        <Sparkles count={40} scale={10} size={3} speed={0.4} opacity={0.6} color="#8b5cf6" />
+        <Sparkles count={20} scale={10} size={3} speed={0.4} opacity={0.6} color="#8b5cf6" />
 
         {/* Smoother auto-rotation */}
         <OrbitControls

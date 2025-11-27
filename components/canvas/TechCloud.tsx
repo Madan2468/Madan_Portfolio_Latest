@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useMemo, useState, useRef } from "react"
+import { useMemo, useState, useRef, memo } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Text, TrackballControls, Html, Line, Sparkles, MeshTransmissionMaterial, Environment, Billboard } from "@react-three/drei"
 import * as THREE from "three"
@@ -21,7 +21,7 @@ const iconMap: Record<string, React.ElementType> = {
   three: Box,
 }
 
-const Node = ({ position, name, icon, index }: { position: THREE.Vector3; name: string; icon: string; index: number }) => {
+const Node = memo(({ position, name, icon, index }: { position: THREE.Vector3; name: string; icon: string; index: number }) => {
   const Icon = iconMap[icon] || FileCode
   const [hovered, setHovered] = useState(false)
   const meshRef = useRef<THREE.Mesh>(null)
@@ -80,7 +80,7 @@ const Node = ({ position, name, icon, index }: { position: THREE.Vector3; name: 
       </Billboard>
     </group>
   )
-}
+})
 
 const DataPulse = ({ start, end, speed = 1, delay = 0 }: { start: THREE.Vector3; end: THREE.Vector3; speed?: number; delay?: number }) => {
   const ref = useRef<THREE.Mesh>(null)
@@ -189,7 +189,7 @@ const Network = ({ count = 4, radius = 20 }) => {
           index={node.index}
         />
       ))}
-      <Sparkles count={20} scale={radius * 2.5} size={2} speed={0.2} opacity={0.4} color="#e2e8f0" />
+      <Sparkles count={10} scale={radius * 2.5} size={2} speed={0.2} opacity={0.4} color="#e2e8f0" />
     </group>
   )
 }

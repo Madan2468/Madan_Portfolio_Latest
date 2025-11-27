@@ -8,8 +8,8 @@ const Stars = (props: any) => {
   const ref = useRef<any>()
   const [sphere] = useState(() => {
     // Generate positions manually to avoid maath dependency issues or NaN values in some environments
-    const positions = new Float32Array(5000 * 3)
-    for (let i = 0; i < 5000; i++) {
+    const positions = new Float32Array(2500 * 3)
+    for (let i = 0; i < 2500; i++) {
       const r = 1.2 * Math.cbrt(Math.random())
       const theta = Math.random() * 2 * Math.PI
       const phi = Math.acos(2 * Math.random() - 1)
@@ -42,7 +42,7 @@ const Stars = (props: any) => {
 const StarsCanvas = () => {
   return (
     <div className="w-full h-auto absolute inset-0 z-[-1] pointer-events-none">
-      <Canvas camera={{ position: [0, 0, 1] }}>
+      <Canvas camera={{ position: [0, 0, 1] }} dpr={[1, 1.5]} gl={{ antialias: false, powerPreference: "high-performance" }}>
         <Suspense fallback={null}>
           <Stars />
         </Suspense>

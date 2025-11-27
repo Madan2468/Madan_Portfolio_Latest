@@ -2,10 +2,10 @@
 
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Float, Icosahedron, Octahedron, Torus, Sphere } from "@react-three/drei"
-import { useRef } from "react"
+import { useRef, memo } from "react"
 import * as THREE from "three"
 
-const Shape = ({ type }: { type: string }) => {
+const Shape = memo(({ type }: { type: string }) => {
   const meshRef = useRef<THREE.Mesh>(null)
 
   useFrame((state) => {
@@ -45,17 +45,18 @@ const Shape = ({ type }: { type: string }) => {
     )
   } else {
     return (
-      <Sphere ref={meshRef} args={[1, 16, 16]}>
+      <Sphere ref={meshRef} args={[1, 12, 12]}>
         {Material}
       </Sphere>
     )
   }
-}
+})
 
 const TimelineIcon = ({ icon }: { icon: string }) => {
   return (
     <Canvas
-      gl={{ alpha: true, antialias: true }}
+      dpr={[1, 1]}
+      gl={{ alpha: true, antialias: false, powerPreference: "high-performance" }}
       camera={{ position: [0, 0, 3], fov: 45 }}
     >
       <ambientLight intensity={0.5} />
