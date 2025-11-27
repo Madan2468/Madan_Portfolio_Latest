@@ -102,7 +102,7 @@ const Navbar = () => {
             <a href="https://github.com/Madan2468" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-200">
               <Github size={20} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-200">
+            <a href="https://www.linkedin.com/in/madan-gopal-jha-380865255/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-200">
               <Linkedin size={20} />
             </a>
             <a href="https://codolio.com/profile/madan13/card" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-200">

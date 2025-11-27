@@ -89,7 +89,7 @@ const Footer = () => {
             <div className="flex gap-4">
               {[
                 { icon: Github, href: "https://github.com/Madan2468" },
-                { icon: Linkedin, href: "https://linkedin.com" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/madan-gopal-jha-380865255/" },
                 {
                   icon: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-[18px] h-[18px]"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5-10-5zM2 12l10 5 10-5" /></svg>,
                   href: "https://codolio.com/profile/madan13/card"
